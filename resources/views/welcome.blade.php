@@ -10,19 +10,19 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@beyondcode">
-    <meta name="twitter:site" content="@beyondcode">
-    <meta name="twitter:title" content="GitHub Notion Sync">
-    <meta name="twitter:description" content="Synchronize your GitHub issues with Notion">
-    <meta name="twitter:image" content="https://githubnotionsync.com/images/card.jpg">
+    <meta name="twitter:creator" content="@web3notify">
+    <meta name="twitter:site" content="@web3notify">
+    <meta name="twitter:title" content="Web3 Notify">
+    <meta name="twitter:description" content="Get updates of web3 jobs, events and news on slack, telegram and twitter">
+    <meta name="twitter:image" content="{{ url('/images/logo-big.png') }}">
 
-    <meta property="og:url" content="https://githubnotionsync.com">
+    <meta property="og:url" content="https://web3notify.com">
     <meta property="og:type" content="product">
-    <meta property="og:title" content="GitHub Notion Sync">
-    <meta property="og:description" content="Synchronize your GitHub issues with Notion">
-    <meta property="og:image" content="https://githubnotionsync.com/images/card.jpg">
+    <meta property="og:title" content="Web3 Notify">
+    <meta name="og:description" content="Get updates of web3 jobs, events and news on slack, telegram and twitter">
+    <meta name="og:image" content="{{ url('/images/logo-big.png') }}">
 
-    <meta name="description" content="Synchronize your GitHub issues with Notion">
+    <meta name="description" content="Get updates of web3 jobs, events and news on slack, telegram and twitter">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -195,10 +195,10 @@
     </div>
 
     <footer class="flex flex-col md:flex-row items-center justify-center md:space-x-8 ">
-        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/legal">Imprint</a>
-        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/privacy-policy">Privacy Policy</a>
-        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/terms">Terms &amp; Conditions</a>
-        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/disclaimer">Disclaimer</a>
+        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/">Imprint</a>
+        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/">Privacy Policy</a>
+        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/">Terms &amp; Conditions</a>
+        <a class="text-gray-100 no-underline text-sm py-2 md:py-4" href="/">Disclaimer</a>
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
