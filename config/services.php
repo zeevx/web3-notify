@@ -30,4 +30,19 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', '5127974001:AAEVxK_hg57q0lK8yJnPMWd04nuLgR5fD2U')
+    ],
+
+    'twitter' => [
+        'consumer_key'    => env('TWITTER_CONSUMER_KEY','JBddAhs5uGgRxb2V9d2mzeyYL'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET','qNWSwhGtNoeHAw0oWulRtmSw9urL6S1mWNJCyfVdBCpfwDG70Z'),
+        'access_token'    => env('TWITTER_ACCESS_TOKEN','2824500543-lpPGsMdFZPJZqyEcxv4rPtHeaFBgeBITPJed0M9'),
+        'access_secret'   => env('TWITTER_ACCESS_SECRET','BEmZIfzDDhtOWXIh8wOE6yS8NpUg66y1feaeqWugdiw5W')
+    ],
+
+    'discord' => [
+        'token' => 'YOUR_API_TOKEN',
+    ],
+
 ];

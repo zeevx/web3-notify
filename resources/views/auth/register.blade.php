@@ -9,6 +9,12 @@
                         {{__('Sign up')}}
                     </h6>
                 </div>
+                <!-- Session Status -->
+                <x-auth-session-status class="mb-4 text-center" :status="session('status')"/>
+
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4 text-center" :errors="$errors"/>
+
                 <hr class="mt-6 border-b-1 border-blueGray-300"/>
             </div>
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">

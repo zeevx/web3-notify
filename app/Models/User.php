@@ -21,6 +21,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'route_to_slack_hook',
+        'telegram_user_id',
+        'activate_slack',
+        'activate_telegram',
+        'twitter_handle',
+        'activate_twitter'
     ];
 
     /**
@@ -45,5 +51,20 @@ class User extends Authenticatable implements MustVerifyEmail
     public function subscriptions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Subscription::class)->with('platform')->orderByDesc('created_at');
+    }
+
+    public function platforms(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Platform::class,'subscriptions');
+    }
+
+    public function routeNotificationForSlack($notification)
+    {
+        return $this->route_to_slack_hook;
+    }
+
+    public function routeNotificationForTelegram()
+    {
+        return $this->telegram_user_id;
     }
 }

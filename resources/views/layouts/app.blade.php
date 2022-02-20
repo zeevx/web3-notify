@@ -32,8 +32,15 @@
             <div class="flex flex-wrap items-center justify-end w-full px-4 mx-auto md:flex-nowrap md:px-10">
                 <x-dropdown>
                     <x-slot name="trigger">
-                        <a class="block text-blueGray-500" href="#pablo" onclick="openDropdown(event,'user-dropdown')">
-                            <span class="text-white">{{ Auth::user()->name }}</span>
+                        <a class="hidden md:block block text-blueGray-500" href="#pablo" onclick="openDropdown(event,'user-dropdown')">
+                            <span class="text-white">
+                                <img
+                                    alt="email"
+                                    class="w-12 h-12 mx-auto rounded-full align-middle border-none shadow-lg"
+                                    src="https://www.gravatar.com/avatar/{{ md5(strtolower(trim(auth()->user()->email)))}}"
+                                />
+                                {{ Auth::user()->name }}
+                            </span>
                         </a>
                     </x-slot>
                     <x-slot name="content">

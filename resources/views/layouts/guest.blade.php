@@ -41,7 +41,7 @@
                             >
                                 Copyright © <span id="get-current-year"></span>
                                 <a
-                                    href="#"
+                                    href="{{ route('dashboard') }}"
                                     class="text-white hover:text-blueGray-300 text-sm font-semibold py-1"
                                 >Web3Notify</a
                                 >

@@ -10,10 +10,10 @@
                 </div>
 
                 <!-- Session Status -->
-                <x-auth-session-status class="mb-4" :status="session('status')"/>
+                <x-auth-session-status class="mb-4 text-center" :status="session('status')"/>
 
                 <!-- Validation Errors -->
-                <x-auth-validation-errors class="mb-4" :errors="$errors"/>
+                <x-auth-validation-errors class="mb-4 text-center" :errors="$errors"/>
 
                 <hr class="mt-6 border-b-1 border-blueGray-300"/>
             </div>
@@ -54,18 +54,22 @@
                             >{{ __('Remember me') }}</span
                             ></label
                         >
-                    </div>
-                    <div class="mt-6 text-center">
-                        <x-button class="w-full">
-                            {{ __('Log in') }}
-                        </x-button>
-
                         @if (Route::has('password.request'))
+                            <br>
                             <a class="text-sm text-gray-600 underline hover:text-gray-900"
                                href="{{ route('password.request') }}">
                                 {{ __('Forgot your password?') }}
                             </a>
                         @endif
+                    </div>
+                    <div class="mt-6 text-center">
+                        <x-button class="w-full">
+                            {{ __('Log in') }}
+                        </x-button>
+                        <a class="text-sm text-gray-600 underline hover:text-gray-900"
+                           href="{{ route('register') }}">
+                            {{ __('Register A New Account') }}
+                        </a>
                     </div>
                 </form>
             </div>

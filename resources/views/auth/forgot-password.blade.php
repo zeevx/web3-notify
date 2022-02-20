@@ -14,10 +14,10 @@
             </div>
 
             <!-- Session Status -->
-            <x-auth-session-status class="mb-4" :status="session('status')"/>
+            <x-auth-session-status class="mb-4 text-center" :status="session('status')"/>
 
             <!-- Validation Errors -->
-            <x-auth-validation-errors class="mb-4" :errors="$errors"/>
+            <x-auth-validation-errors class="mb-4 text-center" :errors="$errors"/>
 
             <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <form method="POST" action="{{ route('password.email') }}">

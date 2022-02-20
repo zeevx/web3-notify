@@ -40,7 +40,7 @@ Route::group(['prefix' => 'app', 'middleware' => ['auth','verified']], function 
 
     //Notifications
     Route::group(['prefix' => 'notification'], function (){
-       Route::get('/')->name('notification.index');
-       Route::post('/')->name('notification.update');
+       Route::get('/',[\App\Http\Controllers\NotificationController::class, 'index'])->name('notification.index');
+       Route::put('/update',[\App\Http\Controllers\NotificationController::class, 'update'])->name('notification.update');
     });
 });

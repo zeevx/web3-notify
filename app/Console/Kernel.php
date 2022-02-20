@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SendToSlack;
+use App\Console\Commands\SendToTelegram;
+use App\Console\Commands\SendToTwitter;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        SendToSlack::class,
+        SendToTelegram::class,
+        SendToTwitter::class
     ];
 
     /**
@@ -24,7 +29,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('send:slack')->twiceDaily(8, 20)->withoutOverlapping();
+         $schedule->command('send:telegram')->twiceDaily(8, 20)->withoutOverlapping();
+         $schedule->command('send:twitter')->twiceDaily(8, 20)->withoutOverlapping();
     }
 
     /**

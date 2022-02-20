@@ -28,9 +28,9 @@
                   <span
                       class="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full"
                   ><img
-                          alt="..."
+                          alt="email"
                           class="w-full rounded-full align-middle border-none shadow-lg"
-                          src="{{ asset('images/team-1-800x800.jpg') }}"
+                          src="https://www.gravatar.com/avatar/{{ md5(strtolower(trim(auth()->user()->email)))}}"
                       /></span></div
                     >
                 </a>
@@ -66,7 +66,7 @@
                             class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                             href="{{ route('dashboard') }}"
                         >
-                            Home
+                            Web3Notify
                         </a>
                     </div>
                     <div class="w-6/12 flex justify-end">

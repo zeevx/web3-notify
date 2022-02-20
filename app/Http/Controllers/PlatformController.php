@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Platform;
-use Illuminate\Support\Facades\DB;
 use willvincent\Feeds\Facades\FeedsFacade;
 
 class PlatformController extends Controller
