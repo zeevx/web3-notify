@@ -45,7 +45,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return $user->hasRole('');
+            return in_array($user->email, [
+                'adamsohiani@gmail.com'
+            ]);
         });
     }
 
@@ -60,7 +62,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             new \Llaski\NovaScheduledJobs\NovaScheduledJobsCard,
             new Users(),
             new Platforms(),
-            new Subscriptions(),
+            new Subscriptions()
         ];
     }
 
