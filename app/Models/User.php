@@ -6,11 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use KirschbaumDevelopment\NovaMail\Traits\Mailable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Mailable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +48,16 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the name of the email field for the model.
+     *
+     * @return string
+     */
+    public function getEmailField(): string
+    {
+        return 'email';
+    }
 
     public function subscriptions(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

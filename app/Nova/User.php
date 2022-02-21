@@ -4,6 +4,8 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use KABBOUCHI\NovaImpersonate\Impersonate;
+use KirschbaumDevelopment\NovaMail\Actions\SendMail;
+use KirschbaumDevelopment\NovaMail\Nova\NovaSentMail;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
@@ -67,7 +69,9 @@ class User extends Resource
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
 
-            HasMany::make('Subscriptions','subscriptions',Subscription::class)
+            HasMany::make('Subscriptions','subscriptions',Subscription::class),
+
+            HasMany::make('Sent Mail', 'mails', NovaSentMail::class),
         ];
     }
 
@@ -112,6 +116,8 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new SendMail,
+        ];
     }
 }

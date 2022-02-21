@@ -10,6 +10,7 @@
         "guratr/nova-command-runner": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "kabbouchi/nova-impersonate": "^1.11",
+        "kirschbaum-development/nova-mail": "^1.0",
         "kregel/nova-failed-jobs-tool": "^1.0",
         "laravel-notification-channels/discord": "^1.3",
         "laravel-notification-channels/telegram": "^2.0",

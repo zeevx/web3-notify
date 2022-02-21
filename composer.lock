@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a925877c6a46d8c5a771f09774097145",
+    "content-hash": "dd1aadc9d1b583edbbae9afd71122529",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1791,6 +1791,51 @@
                 "source": "https://github.com/KABBOUCHI/nova-impersonate/tree/v1.11.0"
             },
             "time": "2022-02-09T11:04:24+00:00"
+        },
+        {
+            "name": "kirschbaum-development/nova-mail",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kirschbaum-development/nova-mail.git",
+                "reference": "c237061a1cc9ddbe49c36387f3de19373dbe7845"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kirschbaum-development/nova-mail/zipball/c237061a1cc9ddbe49c36387f3de19373dbe7845",
+                "reference": "c237061a1cc9ddbe49c36387f3de19373dbe7845",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KirschbaumDevelopment\\NovaMail\\NovaMailServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KirschbaumDevelopment\\NovaMail\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova action for sending mail.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "issues": "https://github.com/kirschbaum-development/nova-mail/issues",
+                "source": "https://github.com/kirschbaum-development/nova-mail/tree/1.0.4"
+            },
+            "time": "2021-08-09T15:21:07+00:00"
         },
         {
             "name": "kregel/exception-probe",
