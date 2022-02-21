@@ -48,9 +48,14 @@ class SendToTelegram extends Command
             ->chunkById('1000', function ($users) use ($title){
                 foreach ($users as $user){
                     $urls = $user->platforms->pluck('rss')->toArray();
+                    if(count($urls) < 1){
+                        Log::error('==> NOTIFICATION SENT VIA TELEGRAM TO USER:'. $user->email .' @ '. Carbon::now()->format('d/m/y h:m') . ' FAILED! NO SUBSCRIPTION YET');
+                        return 1;
+                    }
                     $feedsData = FeedsFacade::make($urls, 2, true);
                     if (!$feedsData){
                         Log::error('==> NOTIFICATION SENT VIA TELEGRAM TO USER:'. $user->email .' @ '. Carbon::now()->format('d/m/y h:m') . ' FAILED!');
+                        return 1;
                     }
                     $items = $feedsData->get_items();
                     $formatted_item = [];
