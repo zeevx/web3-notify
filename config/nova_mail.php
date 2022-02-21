@@ -56,5 +56,5 @@ return [
     ]
     */
 
-    'eventables' => [],
+    'eventables' => [\App\Models\User::class],
 ];
