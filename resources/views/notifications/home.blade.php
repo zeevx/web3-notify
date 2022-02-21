@@ -31,7 +31,7 @@
                         <div class="w-full lg:w-6/12 px-4">
                             <div class="relative w-full mb-3">
                                 <x-label for="name" :value="__('Slack Hook')"/>
-                                <a target="_blank" href="https://api.slack.com/messaging/webhooks" class="text-sm px-2 py-1 border rounded-full bg-purple-600 text-white">
+                                <a target="_blank" href="https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?tab=more_info" class="text-sm px-2 py-1 border rounded-full bg-purple-600 text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                          width="20" height="20"
                                          class="inline-block text-white"

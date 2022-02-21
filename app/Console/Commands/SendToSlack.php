@@ -49,7 +49,7 @@ class SendToSlack extends Command
             ->chunkById('1000', function ($users) use ($title){
                foreach ($users as $user){
                    $urls = $user->platforms->pluck('rss')->toArray();
-                   $feedsData = FeedsFacade::make($urls, 5, true);
+                   $feedsData = FeedsFacade::make($urls, 2, true);
                    if (!$feedsData){
                           Log::error('==> NOTIFICATION SENT VIA SLACK TO USER:'. $user->email .' @ '. Carbon::now()->format('d/m/y h:m') . ' FAILED!');
                    }
