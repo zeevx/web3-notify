@@ -24,7 +24,7 @@
 
                 <x-errors class="mb-4" :errors="$errors" />
 
-                <form action="{{ route('notification.update') }}" method="POST">
+                <form action="{{ route('notification.update') }}" method="POST" id="notification_form">
                     @csrf
                     @method('PUT')
                     <div class="flex flex-wrap">
@@ -72,6 +72,7 @@
                                 <script type="text/javascript">
                                     function onTelegramAuth(user) {
                                         document.getElementById('telegram_user_id').value = user.id
+                                        document.forms['notification_form'].submit();
                                         alert('Logged in on telegram as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
                                     }
                                 </script>
@@ -82,7 +83,9 @@
                                     id="telegram_user_id"
                                     value="{{ old('telegram_user_id', auth()->user()->telegram_user_id) }}"
                                     placeholder="{{ __('Telegram ID') }}"
+                                    readonly
                                 />
+                                <small>Click the 'Login With Telegram' button above to connect your account</small>
                                 <div class="my-2">
                                     <input type="hidden" name="activate_telegram" value="0">
                                     <label class="inline-flex items-center cursor-pointer"

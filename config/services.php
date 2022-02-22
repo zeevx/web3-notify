@@ -42,7 +42,7 @@ return [
     ],
 
     'discord' => [
-        'token' => 'YOUR_API_TOKEN',
+        'token' => 'OTQ1NDgxODI2MjUwNjc4MzAy.YhQykQ.SjwX1CIXEXf4SN4b0S6Gd_udrbg',
     ],
 
 ];

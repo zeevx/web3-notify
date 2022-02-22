@@ -109,7 +109,7 @@
             <div class="flex-col mt-12 flex lg:mt-6 text-center">
                 <p class="mb-4 text-sm font-medium tracking-widest text-white uppercase">Seamless Connection With</p>
                 <div class="flex justify-center">
-                    <svg class="h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-600"
+                    <svg class="h-8 mr-4 text-white duration-150 fill-current transition-color"
                          viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" stroke-width="1">
                             <g>
@@ -117,7 +117,7 @@
                             </g>
                         </g>
                     </svg>
-                    <svg class="h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-600"
+                    <svg class="h-8 mr-4 text-white duration-150 fill-current transition-color"
                          viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" stroke-width="1"></g>
                         <g>
@@ -125,7 +125,7 @@
                         </g>
                         </g>
                     </svg>
-                    <svg class="h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-600"
+                    <svg class="h-8 mr-4 text-white duration-150 fill-current transition-color"
                          viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" stroke-width="1">
                             <g transform="translate(-.157)">
@@ -133,7 +133,7 @@
                             </g>
                         </g>
                     </svg>
-                    <svg class="h-8 mr-4 text-white duration-150 cursor-pointer fill-current transition-color hover:text-gray-600"
+                    <svg class="h-8 mr-4 text-white duration-150 fill-current transition-color"
                          viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" stroke-width="1">
                             <g transform="translate(-401 -701)">
