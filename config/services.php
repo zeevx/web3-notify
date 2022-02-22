@@ -35,10 +35,10 @@ return [
     ],
 
     'twitter' => [
-        'consumer_key'    => env('TWITTER_CONSUMER_KEY','JBddAhs5uGgRxb2V9d2mzeyYL'),
-        'consumer_secret' => env('TWITTER_CONSUMER_SECRET','qNWSwhGtNoeHAw0oWulRtmSw9urL6S1mWNJCyfVdBCpfwDG70Z'),
-        'access_token'    => env('TWITTER_ACCESS_TOKEN','2824500543-lpPGsMdFZPJZqyEcxv4rPtHeaFBgeBITPJed0M9'),
-        'access_secret'   => env('TWITTER_ACCESS_SECRET','BEmZIfzDDhtOWXIh8wOE6yS8NpUg66y1feaeqWugdiw5W')
+        'consumer_key'    => env('TWITTER_CONSUMER_KEY','IZVu2QFDgPNdWdFv29kpui3ds'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET','t9sbAhzyPErUjZH75N818jPRGFZOXL2oDKv1StR7W8z9lgjHt9'),
+        'access_token'    => env('TWITTER_ACCESS_TOKEN','1495453303618031617-PvmF06UMB5n5ekcGIs27VEWEzgGdIc'),
+        'access_secret'   => env('TWITTER_ACCESS_SECRET','itEjRhhGi8n9Uh2If98RILSXKU3glefQZS8NFntHfQ9Ac')
     ],
 
     'discord' => [
