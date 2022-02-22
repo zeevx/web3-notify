@@ -29,9 +29,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('send:slack')->cron('0 */2 * * *')->withoutOverlapping();
-         $schedule->command('send:telegram')->cron('0 */2 * * *')->withoutOverlapping();
-         $schedule->command('send:twitter')->cron('0 */2 * * *')->withoutOverlapping();
+         $schedule->command('send:slack')->cron('0 */6 * * *')->withoutOverlapping();
+         $schedule->command('send:telegram')->cron('0 */6 * * *')->withoutOverlapping();
+         $schedule->command('send:twitter')->cron('0 */6 * * *')->withoutOverlapping();
     }
 
     /**
