@@ -3,24 +3,21 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Timothyasp\Color\Color;
 
-class Platform extends Resource
+class Category extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Platform::class;
+    public static $model = \App\Models\Category::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -49,14 +46,8 @@ class Platform extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Name','name'),
-            Text::make('Code','code')->readonly(),
-            Trix::make('Description','description'),
-            Text::make('URL','url'),
-            Text::make('RSS','rss'),
-            Color::make('Color'),
             DateTime::make('Added On','created_at')->readonly(),
-            BelongsTo::make('Category','category',Category::class),
-            BelongsToMany::make('Users','users',User::class)
+            HasMany::make('Platforms','platforms',Platform::class)
         ];
     }
 

@@ -16,12 +16,20 @@ class Platform extends Model
         'description',
         'url',
         'tag',
-        'color'
+        'color',
+        'category_id'
     ];
+
+    protected $with = ['category'];
 
     public function users()
     {
         return $this->belongsToMany(User::class,'subscriptions');
+    }
+
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 
     private static function generateUUID(): string

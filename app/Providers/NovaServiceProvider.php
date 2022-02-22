@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Nova\Metrics\Category;
 use App\Nova\Metrics\Platforms;
 use App\Nova\Metrics\Subscriptions;
 use App\Nova\Metrics\Users;
@@ -59,10 +60,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new \Llaski\NovaScheduledJobs\NovaScheduledJobsCard,
             new Users(),
             new Platforms(),
-            new Subscriptions()
+            new Subscriptions(),
+            new Category(),
+            new \Llaski\NovaScheduledJobs\NovaScheduledJobsCard,
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Platform;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
@@ -21,8 +22,11 @@ class SearchBox extends Component
 
         $platforms = [];
         $platforms = Platform::query()
-                        ->where('name', 'LIKE', "%{$search}%")
-                        ->get(['name','url', 'code']);
+                        ->join('categories','platforms.category_id', '=', 'categories.id')
+                        ->where('categories.name', 'LIKE', "%{$search}%")
+                        ->orWhere('platforms.name', 'LIKE', "%{$search}%")
+                        ->select('platforms.name','url', 'code','color',DB::raw('categories.name AS cat_name'))
+                        ->get();
 
         if (count($platforms) > 0){
             $this->result = json_decode($platforms);
