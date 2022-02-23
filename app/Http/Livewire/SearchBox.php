@@ -26,6 +26,7 @@ class SearchBox extends Component
                         ->where('categories.name', 'LIKE', "%{$search}%")
                         ->orWhere('platforms.name', 'LIKE', "%{$search}%")
                         ->select('platforms.name','url', 'code','color',DB::raw('categories.name AS cat_name'))
+                        ->distinct()
                         ->get();
 
         if (count($platforms) > 0){
