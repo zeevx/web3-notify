@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <livewire:subscribe-box platform="{{$platform->code}}"/>
+
                                 </div>
                             </div>
                         </div>
