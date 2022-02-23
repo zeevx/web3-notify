@@ -23,8 +23,9 @@ class SearchBox extends Component
         $platforms = [];
         $platforms = Platform::query()
                         ->join('categories','platforms.category_id', '=', 'categories.id')
-                        ->where('categories.name', 'LIKE', "%{$search}%")
-                        ->orWhere('platforms.name', 'LIKE', "%{$search}%")
+                        ->where(function ($query) use ($search){
+                            $query->where('categories.name', 'LIKE', "%{$search}%")->orWhere('platforms.name', 'LIKE', "%{$search}%");
+                        })
                         ->select(DB::raw('distinct(platforms.id)'),'platforms.name','url', 'code','color',DB::raw('categories.name AS cat_name'))
                         ->get();
 
