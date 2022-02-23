@@ -25,8 +25,7 @@ class SearchBox extends Component
                         ->join('categories','platforms.category_id', '=', 'categories.id')
                         ->where('categories.name', 'LIKE', "%{$search}%")
                         ->orWhere('platforms.name', 'LIKE', "%{$search}%")
-                        ->select('platforms.name','url', 'code','color',DB::raw('categories.name AS cat_name'))
-                        ->distinct()
+                        ->select(DB::raw('distinct(platforms.id)'),'platforms.name','url', 'code','color',DB::raw('categories.name AS cat_name'))
                         ->get();
 
         if (count($platforms) > 0){
