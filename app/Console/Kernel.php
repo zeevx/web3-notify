@@ -32,6 +32,7 @@ class Kernel extends ConsoleKernel
          $schedule->command('send:slack')->cron('0 */6 * * *')->withoutOverlapping();
          $schedule->command('send:telegram')->cron('0 */6 * * *')->withoutOverlapping();
          $schedule->command('send:twitter')->cron('0 */6 * * *')->withoutOverlapping();
+         $schedule->command('send:email')->cron('0 */6 * * *')->withoutOverlapping();
     }
 
     /**

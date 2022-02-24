@@ -45,6 +45,7 @@ class EmailNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Notification from your subscriptions 🔔🔔')
                     ->line($this->title)
                     ->lines($this->data)
                     ->action('Login To See More', url('/login'))
