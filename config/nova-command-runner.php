@@ -16,6 +16,7 @@ return [
         'Push Slack' => ['run' => 'send:slack', 'type' => 'success', 'group' => 'Notifications'],
         'Push Telegram' => ['run' => 'send:telegram', 'type' => 'success', 'group' => 'Notifications'],
         'Push Twitter' => ['run' => 'send:twitter', 'type' => 'success', 'group' => 'Notifications'],
+        'Push Email' => ['run' => 'send:email', 'type' => 'success', 'group' => 'Notifications'],
     ],
     'history'  => 10,
 ];

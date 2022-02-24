@@ -23,6 +23,7 @@ class NotificationController extends Controller
             'activate_slack' => 'boolean',
             'activate_telegram' => 'boolean',
             'activate_twitter' => 'boolean',
+            'activate_email' => 'boolean',
         ]);
 
         if ($validator->fails()){

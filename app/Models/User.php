@@ -21,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'activate_email',
         'password',
         'route_to_slack_hook',
         'telegram_user_id',

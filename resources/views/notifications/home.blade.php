@@ -143,6 +143,45 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <x-label for="email" :value="__('Email Address')"/>
+                                <a href="{{ url('/app/profile') }}" class="text-sm px-2 py-1 border rounded-full bg-green-600 text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                         width="20" height="20"
+                                         class="inline-block text-white"
+                                         viewBox="0 0 20 20"
+                                         style=" fill:#ffffff;">
+                                        <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    Change Email Address
+                                </a>
+                                <x-input
+                                    class="mt-2"
+                                    type="text"
+                                    name="email"
+                                    id="email"
+                                    value="{{ old('email', auth()->user()->email) }}"
+                                    readonly
+                                />
+                                <div class="my-2">
+                                    <input type="hidden" name="activate_email" value="0">
+                                    <label class="inline-flex items-center cursor-pointer"
+                                    ><input
+                                            {{ auth()->user()->activate_email ? 'checked' : '' }}
+                                            id="activate_email"
+                                            type="checkbox"
+                                            name="activate_email"
+                                            value="1"
+                                            class="ml-1 w-5 h-5 rounded border-0 transition-all duration-150 ease-linear form-checkbox text-blueGray-700"
+                                        /><span
+                                            class="ml-2 text-sm font-semibold text-blueGray-600"
+                                        >{{ __('Activate Email') }}</span
+                                        ></label
+                                    >
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <x-divider class="mt-6"/>
