@@ -62,6 +62,8 @@
 
             src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
         }</style>
+
+        <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
 </head>
 <body>
 <div class="absolute top-0 w-full bg-blueGray-800 bg-full bg-no-repeat"
@@ -71,14 +73,6 @@
             <div>
                 <a href="{{ url('/') }}" class="inline-flex items-center">
                     <p class="ml-4 font-headline text-lg">Web3Notify</p>
-                </a>
-            </div>
-            <div>
-                <a class="font-medium text-white pr-4" href="/login">
-                    Login
-                </a>
-                <a class="font-medium text-white pr-4" href="/register">
-                    Register
                 </a>
             </div>
         </header>
@@ -172,9 +166,9 @@
                                     </p>
                                     <div class="flex items-center justify-center">
                                         <div class="mt-6 flex flex-col flex-grow-0 flex-shrink items-center">
-                                            <a href="/login" class="inline-flex bg-blueGray-800 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-hulk-700 hover:to-hulk-800">
+                                            <button onclick="web3Login();" class="inline-flex bg-blueGray-800 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-hulk-700 hover:to-hulk-800">
                                                 Login To Start
-                                            </a>
+                                            </button>
                                             <div class="inline-block text-xs font-midnight-800 text-center uppercase font-medium pt-2">
                                                 Yeah! It is free.
                                             </div>
@@ -202,4 +196,42 @@
     </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script>
+        async function web3Login() {
+            let message;
+
+            if (!window.ethereum) {
+                alert('MetaMask not detected. Please install MetaMask first.');
+                return;
+            }
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            await axios.get('{{ $generateUlr }}')
+                .then(response => {
+                    message = response.data.message;
+                }).catch(error => {
+                    alert(error.response.data.message)
+                });
+
+
+            await provider.send("eth_requestAccounts", []);
+            const address = await provider.getSigner().getAddress();
+            const signature = await provider.getSigner().signMessage(message);
+
+            const verify_data = {
+                address: address,
+                signature: signature,
+                _token: '{{ csrf_token() }}'
+            }
+            await axios.post('{{ $verifyUrl }}', verify_data)
+                .then(response => {
+                    alert(response.data.message)
+                    window.location.reload();
+                }).catch(error => {
+                    alert(error.response.data.message)
+                });
+
+        }
+    </script>
 </div>

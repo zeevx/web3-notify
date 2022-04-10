@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -44,8 +45,9 @@ class EmailNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $date = Carbon::now()->toDateString();
         return (new MailMessage)
-                    ->subject('Notification from your subscriptions 🔔🔔')
+                    ->subject('Notification from your subscriptions 🔔🔔 @ '.$date)
                     ->line($this->title)
                     ->lines($this->data)
                     ->action('Login To See More', url('/login'))

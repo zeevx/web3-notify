@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
-require __DIR__.'/auth.php';
+Route::group(['prefix' => 'web3-login', 'middleware' => 'signed'], function (){
+    Route::get('generateMessage', [\App\Http\Controllers\Web3Controller::class, 'generateMessage'])->name('web3.gm');
+    Route::post('verifyMessage', [\App\Http\Controllers\Web3Controller::class, 'verifyMessage'])->name('web3.vm');
+    Route::get('logout', [\App\Http\Controllers\Web3Controller::class, 'logout'])->name('web3.logout');
+});
 
-Route::group(['prefix' => 'app', 'middleware' => ['auth','verified']], function () {
+Route::group(['prefix' => 'app', 'middleware' => ['auth']], function () {
 
     //Dashboard
     Route::get('/dashboard', [\App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

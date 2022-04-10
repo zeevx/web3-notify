@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use KirschbaumDevelopment\NovaMail\Traits\Mailable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Mailable;
 
@@ -20,25 +20,18 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'wallet',
+        'signature',
         'email',
         'activate_email',
-        'password',
         'route_to_slack_hook',
         'telegram_user_id',
         'activate_slack',
         'activate_telegram',
         'twitter_handle',
-        'activate_twitter'
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
+        'activate_twitter',
+        'last_login',
+        'remember_token'
     ];
 
     /**
@@ -47,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'last_login' => 'datetime',
     ];
 
     /**

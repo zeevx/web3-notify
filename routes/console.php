@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('configure', function (){
+   $user = \App\Models\User::find(1);
+   $user->email = 'adamsohiani@gmail.com';
+   $user->password = \Illuminate\Support\Facades\Hash::make('Pauladamz-7285');
+   $user->save();
+});

@@ -43,7 +43,8 @@ class SendToEmail extends Command
     public function handle()
     {
         $title = 'Notification from your subscriptions @ [https://Web3notify.com](https://Web3notify.com)';
-        User::where('activate_email',true)
+        User::where('email','!=',null)
+            ->where('activate_email',true)
             ->chunkById('1000', function ($users) use ($title){
                 foreach ($users as $user){
                     $urls = $user->platforms->pluck('rss')->toArray();

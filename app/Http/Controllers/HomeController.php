@@ -2,10 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
+
+    public function home()
+    {
+        $generateUrl = URL::signedRoute('web3.gm');
+        $verifyUrl = URL::signedRoute('web3.vm');
+
+        if (Auth::check()){
+            return redirect()->to(route('dashboard'));
+        }
+
+        return view('welcome', [
+            'generateUlr' => $generateUrl,
+            'verifyUrl' => $verifyUrl
+        ]);
+    }
+
     public function index()
     {
         $tsps = \DB::table('subscriptions')

@@ -12,81 +12,32 @@
 
             <div class="flex-auto p-4">
 
-                @if ($message = Session::get('success'))
-                    <div class="text-white px-6 py-4 border-0 rounded relative mb-4 bg-emerald-500">
-                        <span class="text-xl inline-block mr-5 align-middle">
-                            <i class="fas fa-bell"></i>
-                        </span>
-                        <span class="inline-block align-middle mr-8">
-                            <b class="capitalize">Success!</b> {{ $message }}
-                        </span>
-                    </div>
-                @endif
-
-                <x-errors class="mb-4" :errors="$errors" />
-
-                <form action="{{ route('profile.update') }}" method="POST">
-                    @csrf
-                    @method('PUT')
-
-                    <div class="flex flex-wrap">
-                        <div class="w-full lg:w-6/12 px-4">
-                            <div class="relative w-full mb-3">
-                                <x-label for="name" :value="__('Name')"/>
-                                <x-input
-                                        type="text"
-                                        placeholder="{{ __('Name') }}"
-                                        name="name"
-                                        id="name"
-                                        value="{{ old('name', auth()->user()->name) }}"
-                                        required
-                                />
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-6/12 px-4">
-                            <div class="relative w-full mb-3">
-                                <x-label for="email" :value="__('Email')"/>
-                                <x-input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        value="{{ old('email', auth()->user()->email) }}"
-                                        placeholder="{{ __('Email') }}"
-                                />
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-6/12 px-4">
-                            <div class="relative w-full mb-3">
-                                <x-label for="password" :value="__('New password')"/>
-                                <x-input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        placeholder="{{ __('New password') }}"
-                                />
-                            </div>
-                        </div>
-                        <div class="w-full lg:w-6/12 px-4">
-                            <div class="relative w-full mb-3">
-                                <x-label for="password_confirmation" :value="__('New password confirmation')"/>
-                                <x-input
-                                        type="password"
-                                        name="password_confirmation"
-                                        id="password_confirmation"
-                                        placeholder="{{ __('New password confirmation') }}"
-                                />
-                            </div>
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <x-label for="wallet" :value="__('Wallet Address')"/>
+                            <x-input
+                                readonly
+                                type="text"
+                                name="wallet"
+                                id="wallet"
+                                value="{{ auth()->user()->wallet }}"
+                            />
                         </div>
                     </div>
-
-                    <x-divider class="mt-6"/>
-
-                    <div class="mt-6">
-                        <x-button>
-                            {{ __('Submit') }}
-                        </x-button>
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <x-label for="last_login" :value="__('Last Login')"/>
+                            <x-input
+                                readonly
+                                type="text"
+                                name="last_login"
+                                id="last_login"
+                                value="{{ auth()->user()->last_login->diffForHumans() }}"
+                            />
+                        </div>
                     </div>
-                </form>
+                </div>
 
             </div>
         </div>

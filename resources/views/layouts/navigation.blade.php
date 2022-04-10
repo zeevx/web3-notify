@@ -41,15 +41,11 @@
                     <div
                         class="h-0 my-2 border border-solid border-blueGray-100"
                     ></div>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); this.closest('form').submit();"
-                            class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
-                        >{{ __('Log Out') }}</a
-                        >
-                    </form>
+                    <a
+                        href="{{ \Illuminate\Support\Facades\URL::signedRoute('web3.logout') }}"
+                        class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                    >{{ __('Log Out') }}</a
+                    >
                 </div>
             </li>
         </ul>

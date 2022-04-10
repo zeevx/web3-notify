@@ -46,13 +46,10 @@
                     <x-slot name="content">
                         <x-dropdown-link href="{{ route('profile.show') }}">{{ __('My profile') }}</x-dropdown-link>
                         <x-divider />
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+                        <x-dropdown-link href="{{ \Illuminate\Support\Facades\URL::signedRoute('web3.logout') }}"
+                        >
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>
