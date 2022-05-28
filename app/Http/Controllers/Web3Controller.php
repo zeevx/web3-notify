@@ -22,7 +22,7 @@ class Web3Controller extends Controller
         $message = "Sign this message to confirm you own this wallet address. This action will not cost any gas fees.";
         $message .= "\nNonce: {$nonce}";
 
-        Cache::remember("{$request->ip()}_nonce",5, function () use ($message) {
+        $message = Cache::remember("{$request->ip()}_nonce",5, function () use ($message) {
             return $message;
         });
 

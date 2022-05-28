@@ -50,7 +50,7 @@ class EmailNotification extends Notification implements ShouldQueue
                     ->subject('Notification from your subscriptions 🔔🔔 @ '.$date)
                     ->line($this->title)
                     ->lines($this->data)
-                    ->action('Login To See More', url('/login'))
+                    ->action('Login To See More', url('/'))
                     ->line('Thank you for subscribing!');
     }
 
